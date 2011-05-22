@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<title>Password Check/Gen</title>
+	<%= stylesheet_link_tag 'style' %>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+</head>
+<body>
+	<%= javascript_tag "$(function() { $(application_pass).focus(); });" %>
+	<div id="container">
+		<div id="header">
+			<h1>Test your password!!</h1>
+		</div> <!-- header -->
+		<div id="form">
+			<%= form_for(:application, :url => {:action => 'strength'}) do |f| %>
+			<div id="pass_field">
+				<%= f.password_field(:pass, :class => "t_field") %>
+			</div>
+			<% end %>
+		</div> <!-- form -->
+	</div> <!-- container -->
+</body>
+</html>

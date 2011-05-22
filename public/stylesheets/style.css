@@ -1,0 +1,80 @@
+/* @override http://localhost:3000/stylesheets/style.css?1305419857 */
+
+body{
+	background-color: #fff;
+}
+
+#container{	
+	text-align: center;
+}
+
+#toa{
+	width: 350px;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+#toa_left{
+	float: left;
+	margin-right: 5px;
+}
+
+#toa_right{
+	float: right;
+	text-align: left;
+	margin-left: 5px;
+}
+
+#usergen{
+	clear: both;
+}
+
+#duration{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.form_submit{
+	font-size: 100px;
+	line-height: 100px;
+}
+
+#result{
+	display: inline-block;
+	margin-top: 10%;
+	text-align: center;
+	background-color: #fff;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.raised{
+    -moz-box-shadow: 1px 1px 4px #888;
+	-webkit-box-shadow: 1px 1px 10px #000;
+	box-shadow: 1px 1px 4px #888;
+}
+
+.round{
+	-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.t_field{
+	-moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+	font-size: 20px;
+	border: solid;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	outline: none;
+}

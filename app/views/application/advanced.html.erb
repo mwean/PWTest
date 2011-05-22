@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<title>Password Check/Gen</title>
+	<%= stylesheet_link_tag 'style' %>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>Test your password!!</h1>
+		</div> <!-- header -->
+		<div id="form">
+			<%= form_for(:application, :url => {:action => 'strength'}) do |f| %>
+			<div id="pass_field">
+				<%= f.password_field(:pass, :class => "t_field") %>
+			</div>
+			<div id="toa">
+				<div id="toa_left">
+					<h2>Type of attack:</h2>
+				</div>
+				<div id="toa_right">
+					<%= f.radio_button(:cracker, :Extreme) %>
+					<%= f.label(:cracker_extreme, "Multi-GPU/Distributed") %>
+					<br>
+					<%= f.radio_button(:cracker, :GPU, :checked => true) %>
+					<%= f.label(:cracker_gpu, "GPU") %>
+					<br>
+					<%= f.radio_button(:cracker, :desktop) %>
+					<%= f.label(:cracker_desktop, "Desktop Computer") %>
+					<br>
+					<%= f.radio_button(:cracker, :online) %>
+					<%= f.label(:cracker_online, "Online") %>
+				</div> <!-- toa_right-->
+			</div> <!-- toa -->
+			<div id="usergen">
+				<%= f.radio_button(:usergen, true, :checked => true) %>
+				<%= f.label(:usergen_true, "User-generated") %>
+				<%= f.radio_button(:usergen, false) %>
+				<%= f.label(:usergen_false, "Completely Random") %>
+			</div>
+			<div id="duration">
+				<h2><%= f.label(:years, "Duration of attack in years: ") %>
+				<%= f.text_field(:years, :size => 5, :class => "t_field") %></h2>
+			</div>
+			<%= submit_tag("Test", :id => "submit", :name => "submit", :class => "form_submit", :disabled => false, :disable_with => "Please wait...") %>
+			<% end %>
+		</div> <!-- form -->
+	</div> <!-- container -->
+</body>
+</html>
