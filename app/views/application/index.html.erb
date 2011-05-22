@@ -10,9 +10,9 @@
 <body>
 	<%= javascript_tag "$(function() { $(application_pass).focus(); });" %>
 	<div id="container">
-		<div id="header">
-			<h1>Test your password!!</h1>
-		</div> <!-- header -->
+		<div id="title">
+			<h1>Test Your Password:</h1>
+		</div> <!-- title -->
 		<div id="form">
 			<%= form_for(:application, :url => {:action => 'strength'}) do |f| %>
 			<div id="pass_field">

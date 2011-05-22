@@ -8,6 +8,10 @@ body{
 	text-align: center;
 }
 
+#title{
+	margin-top: 10%;
+}
+
 #toa{
 	width: 350px;
 	display: inline-block;
@@ -17,15 +21,19 @@ body{
 	margin-bottom: 20px;
 }
 
-#toa_left{
+.left_div{
 	float: left;
 	margin-right: 5px;
 }
 
-#toa_right{
+.right_div{
 	float: right;
 	text-align: left;
 	margin-left: 5px;
+}
+
+#buttons{
+	display: inline-block;
 }
 
 #usergen{
