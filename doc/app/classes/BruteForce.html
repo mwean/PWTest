@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: BruteForce</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">BruteForce</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/brute_force_rb.html">
+                lib/brute_force.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Written by Matthew Wean MattWean.com
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000009">chance_of_failure</a>&nbsp;&nbsp;
+      <a href="#M000008">crack_time</a>&nbsp;&nbsp;
+      <a href="#M000007">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">attack_type</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">charset</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">combinations</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">length</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">password</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">speed</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">time</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(params)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/brute_force.rb, line 9</span>
+ 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">params</span>)
+10:     <span class="ruby-comment cmt"># You can pass any of these parameters as a hash when you instantiate a BruteForce object</span>
+11: 
+12:     <span class="ruby-ivar">@attack_type</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:attack_type</span>]
+13:     <span class="ruby-comment cmt"># Choose any of the pre-defined speeds below</span>
+14:     <span class="ruby-identifier">user_gen</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:user_gen</span>] 
+15:     <span class="ruby-comment cmt"># Boolean to include decrease in password strength due to predictability of user-generated passwords</span>
+16:     <span class="ruby-ivar">@combinations</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:combinations</span>]
+17: 
+18:     <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:password</span>]
+19:     <span class="ruby-ivar">@speed</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:speed</span>]
+20:     <span class="ruby-comment cmt"># You can specify your own attempts/second value</span>
+21: 
+22:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@attack_type</span>
+23:       <span class="ruby-ivar">@attack_type</span> = <span class="ruby-ivar">@attack_type</span>.<span class="ruby-identifier">to_sym</span>
+24:       <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@attack_type</span>
+25:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:Extreme</span> <span class="ruby-comment cmt"># Multi-GPU or distributed</span>
+26:         <span class="ruby-ivar">@speed</span> = <span class="ruby-value">10000000000</span>
+27:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:GPU</span> <span class="ruby-comment cmt"># GPU-based desktop attack</span>
+28:         <span class="ruby-ivar">@speed</span> = <span class="ruby-value">3000000000</span>
+29:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:desktop</span> <span class="ruby-comment cmt"># ~Core i7</span>
+30:         <span class="ruby-ivar">@speed</span> = <span class="ruby-value">200000000</span>
+31:       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:online</span>
+32:         <span class="ruby-ivar">@speed</span> = <span class="ruby-value">100</span>
+33:       <span class="ruby-keyword kw">end</span>
+34:     <span class="ruby-keyword kw">else</span>  <span class="ruby-comment cmt"># Default speed if no speed or cracker chosen</span>
+35:       <span class="ruby-ivar">@attack_type</span> = <span class="ruby-identifier">:desktop</span>
+36:       <span class="ruby-ivar">@speed</span> = <span class="ruby-value">200000000</span>
+37:     <span class="ruby-keyword kw">end</span>
+38: 
+39:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@password</span>
+40:       <span class="ruby-ivar">@charset</span> = <span class="ruby-value">0</span>
+41:       <span class="ruby-comment cmt"># Lowercase</span>
+42:       <span class="ruby-ivar">@charset</span> <span class="ruby-operator">+=</span> <span class="ruby-value">26</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/[a-z]/</span>)
+43:       <span class="ruby-comment cmt"># Uppercase</span>
+44:       <span class="ruby-ivar">@charset</span> <span class="ruby-operator">+=</span> <span class="ruby-value">26</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/[A-Z]/</span>)
+45:       <span class="ruby-comment cmt"># Numbers</span>
+46:       <span class="ruby-ivar">@charset</span> <span class="ruby-operator">+=</span> <span class="ruby-value">10</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\d+/</span>)
+47:       <span class="ruby-comment cmt"># Symbols</span>
+48:       <span class="ruby-ivar">@charset</span> <span class="ruby-operator">+=</span> <span class="ruby-value">16</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/[.,,,!,@,#,$,%,^,&amp;,*,?,_,~,-,(,)]/</span>)
+49: 
+50:       <span class="ruby-comment cmt"># Ruby 1.8.7 doesn't support Unicode very well, so I left these out for now</span>
+51:       <span class="ruby-comment cmt"># Unicode Latin characters</span>
+52:       <span class="ruby-comment cmt"># @charset += 94 if @password.match(/[^\u0080-\u00FF]+/)</span>
+53:       <span class="ruby-comment cmt"># @charset += 128 if @password.match(/[^\u0100-\u017F]+/)</span>
+54:       <span class="ruby-comment cmt"># @charset += 208 if @password.match(/[^\u0180-\u024F]+/)</span>
+55:       <span class="ruby-comment cmt"># @charset += 32 if @password.match(/[^\u2C60-\u2C7F]+/)</span>
+56:       <span class="ruby-comment cmt"># @charset += 29 if @password.match(/[^\uA720-\uA7FF]+/)</span>
+57:       <span class="ruby-comment cmt"># # Unicode Cyrillic characters</span>
+58:       <span class="ruby-comment cmt"># @charset += 40 if @password.match(/[^\u0500-\u052F]+/)</span>
+59:       <span class="ruby-comment cmt"># @charset += 74 if @password.match(/[^\uA640-\uA69F]+/)</span>
+60: 
+61:       <span class="ruby-ivar">@length</span> = <span class="ruby-ivar">@password</span>.<span class="ruby-identifier">length</span>
+62:       <span class="ruby-ivar">@combinations</span> = <span class="ruby-ivar">@charset</span><span class="ruby-operator">**</span><span class="ruby-ivar">@length</span>
+63:     <span class="ruby-keyword kw">end</span>
+64:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user_gen</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span>
+65:       <span class="ruby-keyword kw">case</span> 
+66:       <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">8</span>
+67:         <span class="ruby-ivar">@combinations</span> <span class="ruby-operator">/=</span> ((<span class="ruby-ivar">@length</span><span class="ruby-operator">*</span><span class="ruby-value">6.5546</span>)<span class="ruby-operator">/</span>(<span class="ruby-value">2</span><span class="ruby-operator">*</span><span class="ruby-ivar">@length</span><span class="ruby-operator">+</span><span class="ruby-value">2</span>))
+68:       <span class="ruby-keyword kw">when</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">20</span>
+69:         <span class="ruby-ivar">@combinations</span> <span class="ruby-operator">/=</span> ((<span class="ruby-ivar">@length</span><span class="ruby-operator">*</span><span class="ruby-value">6.5546</span>)<span class="ruby-operator">/</span>(<span class="ruby-value">1.5</span><span class="ruby-operator">*</span><span class="ruby-ivar">@length</span><span class="ruby-operator">+</span><span class="ruby-value">6</span>))
+70:       <span class="ruby-keyword kw">else</span>
+71:         <span class="ruby-ivar">@combinations</span> <span class="ruby-operator">/=</span> ((<span class="ruby-ivar">@length</span><span class="ruby-operator">*</span><span class="ruby-value">6.5546</span>)<span class="ruby-operator">/</span>(<span class="ruby-ivar">@length</span><span class="ruby-operator">+</span><span class="ruby-value">16</span>))
+72:       <span class="ruby-keyword kw">end</span>
+73:     <span class="ruby-keyword kw">end</span>
+74:     <span class="ruby-ivar">@raw_time</span> = <span class="ruby-ivar">@combinations</span><span class="ruby-operator">/</span><span class="ruby-ivar">@speed</span>.<span class="ruby-identifier">to_f</span>
+75:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">chance_of_failure</span><span class="method-args">(years)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/brute_force.rb, line 150</span>
+150:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">chance_of_failure</span>(<span class="ruby-identifier">years</span>)
+151:     <span class="ruby-identifier">chance</span> = ((<span class="ruby-identifier">years</span><span class="ruby-operator">*</span><span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-ivar">@speed</span>)<span class="ruby-operator">/</span><span class="ruby-ivar">@combinations</span>.<span class="ruby-identifier">to_f</span>)<span class="ruby-operator">*</span><span class="ruby-value">100</span>
+152:     <span class="ruby-identifier">chance</span> = <span class="ruby-value">100</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">chance</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>
+153:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">chance</span>
+154:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">crack_time</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/brute_force.rb, line 77</span>
+ 77:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">crack_time</span>
+ 78:     <span class="ruby-identifier">small_names</span> = [
+ 79:       <span class="ruby-value str">&quot;minute&quot;</span>,
+ 80:       <span class="ruby-value str">&quot;hour&quot;</span>,
+ 81:       <span class="ruby-value str">&quot;day&quot;</span>, 
+ 82:       <span class="ruby-value str">&quot;month&quot;</span>
+ 83:     ]
+ 84:     <span class="ruby-identifier">big_names</span> = [
+ 85:       <span class="ruby-value str">&quot;year&quot;</span>,
+ 86:       <span class="ruby-value str">&quot;thousand years&quot;</span>,
+ 87:       <span class="ruby-value str">&quot;million years&quot;</span>,
+ 88:       <span class="ruby-value str">&quot;billion years&quot;</span>,
+ 89:       <span class="ruby-value str">&quot;trillion years&quot;</span>,
+ 90:       <span class="ruby-value str">&quot;quadrillion years&quot;</span>,
+ 91:       <span class="ruby-value str">&quot;quintillion years&quot;</span>,
+ 92:       <span class="ruby-value str">&quot;septillion years&quot;</span>,
+ 93:       <span class="ruby-value str">&quot;octillion years&quot;</span>,
+ 94:       <span class="ruby-value str">&quot;nonillion years&quot;</span>,
+ 95:       <span class="ruby-value str">&quot;decillion years&quot;</span>
+ 96:     ]
+ 97:     <span class="ruby-identifier">small_values</span> = [
+ 98:       <span class="ruby-value">60</span>,
+ 99:       <span class="ruby-value">3600</span>,
+100:       <span class="ruby-value">86400</span>,
+101:       <span class="ruby-value">2592000</span>,
+102:       <span class="ruby-ivar">@@year</span>
+103:     ]
+104:     <span class="ruby-identifier">big_values</span> = [
+105:       <span class="ruby-ivar">@@year</span>,
+106:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>,
+107:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">6</span>,
+108:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">9</span>,
+109:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">12</span>,
+110:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">15</span>,
+111:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">18</span>,
+112:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">21</span>,
+113:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">24</span>,
+114:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">27</span>,
+115:       <span class="ruby-ivar">@@year</span><span class="ruby-operator">*</span><span class="ruby-value">10</span><span class="ruby-operator">**</span><span class="ruby-value">30</span>
+116:     ]
+117: 
+118:     <span class="ruby-identifier">period</span> = <span class="ruby-value str">&quot;second&quot;</span>
+119:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@raw_time</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+120:       <span class="ruby-ivar">@time</span> = <span class="ruby-node">&quot;#{@raw_time} seconds&quot;</span>
+121:     <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@raw_time</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">60</span>
+122:       <span class="ruby-ivar">@raw_time</span> = <span class="ruby-ivar">@raw_time</span>.<span class="ruby-identifier">floor</span>
+123:       <span class="ruby-ivar">@time</span> = <span class="ruby-node">&quot;about #{@raw_time} seconds&quot;</span>
+124:     <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@raw_time</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@@year</span>
+125:       <span class="ruby-identifier">small_values</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+126:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@raw_time</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">small_values</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]
+127:           <span class="ruby-identifier">new_time</span> = (<span class="ruby-ivar">@raw_time</span><span class="ruby-operator">/</span><span class="ruby-identifier">small_values</span>[<span class="ruby-identifier">i</span>]).<span class="ruby-identifier">round</span>
+128:           <span class="ruby-ivar">@time</span> = <span class="ruby-node">&quot;about #{new_time} #{small_names[i]}&quot;</span>
+129:           <span class="ruby-ivar">@time</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;s&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_time</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+130:           <span class="ruby-keyword kw">break</span>
+131:         <span class="ruby-keyword kw">end</span>
+132:       <span class="ruby-keyword kw">end</span>
+133:     <span class="ruby-keyword kw">else</span>
+134:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+135:       <span class="ruby-identifier">big_values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+136:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@raw_time</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">v</span><span class="ruby-operator">*</span><span class="ruby-value">999</span>
+137:           <span class="ruby-identifier">new_time</span> = (<span class="ruby-ivar">@raw_time</span><span class="ruby-operator">/</span><span class="ruby-identifier">v</span>).<span class="ruby-identifier">round</span>
+138:           <span class="ruby-ivar">@time</span> = <span class="ruby-node">&quot;about #{new_time} #{big_names[i]}&quot;</span>
+139:           <span class="ruby-ivar">@time</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;s&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">new_time</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+140:           <span class="ruby-keyword kw">break</span>
+141:         <span class="ruby-keyword kw">else</span>
+142:           <span class="ruby-ivar">@time</span> = <span class="ruby-value str">&quot;more than 1,000,000,000,000,000,000,000,000,000,000,000,000 years&quot;</span>
+143:         <span class="ruby-keyword kw">end</span>
+144:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+145:       <span class="ruby-keyword kw">end</span>
+146:     <span class="ruby-keyword kw">end</span>
+147:     <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@time</span>
+148:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

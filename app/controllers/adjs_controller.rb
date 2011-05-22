@@ -1,2 +1,0 @@
-class AdjsController < ApplicationController
-end

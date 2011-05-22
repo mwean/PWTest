@@ -35,11 +35,11 @@ class ApplicationController < ActionController::Base
       pwds << pass[0..-3]
       pwds << pass[0..-4]
 
-      @cracked_in = nil
+      @in_dictionary = nil
       if EnDict.check_words(pwds)
-        @cracked_in = "almost instantly: found in dictionary"
+        @in_dictionary = true
       elsif Name.check_words(pwds)
-        @cracked_in = "almost instantly: found in dictionary"
+        @in_dictionary = true
       else
         @bf = BruteForce.new(:password => @password, :attack_type => @cracker, :user_gen => @usergen)
         # @cracked_in = "in #{@bf.crack_time}"
