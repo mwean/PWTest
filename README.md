@@ -8,7 +8,7 @@ PWChecker is a Rails application that I made to test the strength of passwords. 
 - The probability that the password would be broken within a given time period
 	* This gives a better sense of strength because you can decide on a time period you're concerned about and see if the chance of being compromised is acceptable
 	
-The calculations also take into account the effect of predictability caused by user-generated passwords. You can read more about this in [this report][1]. The brute-force calculations were inspired by the site [HowSecureIsMyPassword.net][4].
+The calculations also take into account the effect of predictability caused by user-generated passwords. You can read more about this in [this report][1]. The brute-force calculations were inspired by the site [HowSecureIsMyPassword.net][4]. 
 
 Usage
 -----
