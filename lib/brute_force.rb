@@ -14,11 +14,10 @@ class BruteForce
     user_gen = params[:user_gen] 
     # Boolean to include decrease in password strength due to predictability of user-generated passwords
     @combinations = params[:combinations]
-
     @password = params[:password]
     @speed = params[:speed]
     # You can specify your own attempts/second value
-
+    
     if @attack_type
       @attack_type = @attack_type.to_sym
       case @attack_type
