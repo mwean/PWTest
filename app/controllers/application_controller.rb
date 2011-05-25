@@ -4,14 +4,6 @@
 
 class ApplicationController < ActionController::Base
   def index
-
-  end
-
-  def passgen
-    @randnoun = Noun.random.noun
-    @randverb = Verb.random.verb
-    @randadj = Adj.random.adj
-    render :passgen
   end
 
   def strength
