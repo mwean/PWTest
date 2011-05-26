@@ -2,6 +2,12 @@
 # require  File.join('root','config', 'initializers', 'brute_force.rb')
 # require "/config/initializers/brute_force.rb"
 
+class String
+    def is_i?
+       !!(self =~ /^[-+]?[0-9]+$/)
+    end
+end
+
 class ApplicationController < ActionController::Base
   def index
   end
@@ -59,7 +65,8 @@ class ApplicationController < ActionController::Base
   def update
     @cracker = params[:application][:cracker]
     @usergen = params[:application][:usergen]
-    @years = params[:application][:years].to_i
+    year_string = params[:application][:years]
+    @years = year_string.is_i? ? year_string.to_i : year_string.to_f
     @combinations = params[:application][:combinations].to_i
     @bfu = BruteForce.new(:attack_type => @cracker, :usergen => @usergen, :combinations => @combinations)
 
